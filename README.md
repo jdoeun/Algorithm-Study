@@ -54,8 +54,15 @@
 
 ## 🔍 참여 방법
 1. 이 저장소를 `clone` 한다.
-2. 생성된 저장소에 `Github ID`로 폴더를 생성한다.
-3. 알고리즘 풀이 후 원본 저장소에 `PR`를 보낸다.
+2. 본인의 브랜치(브랜치 명은 `Github ID`)를 생성한다.
+3. `Github ID`로 폴더를 생성한다.
+4. 알고리즘 풀이 후 본인의 브랜치에 `commit` 하고 `push` 한다.
+5. `main` 브랜치에 `PR`를 보내 `merge` 한다.
+
+### 주요 git 명령어
+- 로컬에 clone: `$ git clone <Repository URL>`
+- branch 생성: `$ git branch <branch 명>`
+- branch 변경: `$ git checkout <branch 명>`
 
 <br/>
 
