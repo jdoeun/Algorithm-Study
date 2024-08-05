@@ -68,10 +68,10 @@
 
 ## 📁 Repository 폴더 구조
 ```
-{Github ID}/{날짜}/{코드.python}
+{Github ID}/{날짜}/{코드.py}
 ```
 
-- 💡 예시: `iceprins/240802/PGS_네트워크.python`
+- 💡 예시: `iceprins/240802/PGS_네트워크.py`
 
 <br/>
 
