@@ -30,7 +30,6 @@
 
 <table>
  <tr>
-    <td align="center"><a href="https://github.com/kyungheee"><img src="https://avatars.githubusercontent.com/kyungheee" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/qwes98"><img src="https://avatars.githubusercontent.com/qwes98" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/rebyong8643"><img src="https://avatars.githubusercontent.com/rebyong8643" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/iceprins"><img src="https://avatars.githubusercontent.com/iceprins" width="130px;" alt=""></a></td>
