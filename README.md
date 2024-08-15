@@ -36,7 +36,6 @@
     <td align="center"><a href="https://github.com/iceprins"><img src="https://avatars.githubusercontent.com/iceprins" width="130px;" alt=""></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/kyungheee"><b>kyungheee</b></a></td>
     <td align="center"><a href="https://github.com/qwes98"><b>qwes98</b></a></td>
     <td align="center"><a href="https://github.com/rebyong8643"><b>rebyong8643</b></a></td>
     <td align="center"><a href="https://github.com/iceprins"><b>iceprins</b></a></td>
