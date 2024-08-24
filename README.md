@@ -31,11 +31,15 @@
 <table>
  <tr>
     <td align="center"><a href="https://github.com/qwes98"><img src="https://avatars.githubusercontent.com/qwes98" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/qwes98"><img src="https://avatars.githubusercontent.com/yjenis" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/iceprins"><img src="https://avatars.githubusercontent.com/iceprins" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/iceprins"><img src="https://avatars.githubusercontent.com/Jason150" width="130px;" alt=""></a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/qwes98"><b>qwes98</b></a></td>
+    <td align="center"><a href="https://github.com/qwes98"><b>yjenis</b></a></td>
     <td align="center"><a href="https://github.com/iceprins"><b>iceprins</b></a></td>
+    <td align="center"><a href="https://github.com/iceprins"><b>Jason150</b></a></td>
   </tr>
 </table>
 
