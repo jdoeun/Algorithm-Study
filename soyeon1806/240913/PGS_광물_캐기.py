@@ -13,7 +13,7 @@ def solution(picks, minerals):
     if len(minerals) > available:
         minerals = minerals[:available]
 
-    list_minerals = [[0, 0, 0] for _ in range ((len(minerals) // 5))]
+    list_minerals = [[0, 0, 0] for _ in range ((len(minerals) // 5 + 1))]
     for i in range (len(minerals)):
         if minerals[i] == 'diamond':
             list_minerals[i // 5][0] += 1
