@@ -32,14 +32,14 @@
  <tr>
     <td align="center"><a href="https://github.com/soyeon1806"><img src="https://avatars.githubusercontent.com/soyeon1806" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/qwes98"><img src="https://avatars.githubusercontent.com/qwes98" width="130px;" alt=""></a></td>
-    <td align="center"><a href="https://github.com/yjenis"><img src="https://avatars.githubusercontent.com/yjenis" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/iceprins"><img src="https://avatars.githubusercontent.com/iceprins" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/hongPlatypus"><img src="https://avatars.githubusercontent.com/hongPlatypus" width="130px;" alt=""></a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/soyeon1806"><b>soyeon1806</b></a></td>
     <td align="center"><a href="https://github.com/qwes98"><b>qwes98</b></a></td>
-    <td align="center"><a href="https://github.com/yjenis"><b>yjenis</b></a></td>
     <td align="center"><a href="https://github.com/iceprins"><b>iceprins</b></a></td>
+    <td align="center"><a href="https://github.com/hongPlatypus"><b>iceprins</b></a></td>
   </tr>
 </table>
 
