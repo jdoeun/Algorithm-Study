@@ -39,7 +39,7 @@
     <td align="center"><a href="https://github.com/soyeon1806"><b>soyeon1806</b></a></td>
     <td align="center"><a href="https://github.com/qwes98"><b>qwes98</b></a></td>
     <td align="center"><a href="https://github.com/iceprins"><b>iceprins</b></a></td>
-    <td align="center"><a href="https://github.com/hongPlatypus"><b>iceprins</b></a></td>
+    <td align="center"><a href="https://github.com/hongPlatypus"><b>hongPlatypus</b></a></td>
   </tr>
 </table>
 
