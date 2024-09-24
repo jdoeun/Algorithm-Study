@@ -1,0 +1,24 @@
+def solution(k, tangerine):
+    # 크기별로 개수를 저장할 딕셔너리 생성
+    count_dict = {}
+    
+    for size in tangerine:
+        if size in count_dict:
+            count_dict[size] += 1
+        else:
+            count_dict[size] = 1
+    
+    size_count_list = [[size, count] for size, count in count_dict.items()]
+    
+    # 개수순으로 내림차순 정렬
+    size_count_list.sort(key=lambda x: x[1], reverse=True)
+    
+    answer = 0
+    total = 0
+    
+    for size, count in size_count_list:
+        total += count
+        answer += 1
+        if total >= k:
+            break
+    return answer
