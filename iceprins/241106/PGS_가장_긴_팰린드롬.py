@@ -1,10 +1,18 @@
+def is_palindrome(s, start, end):
+    for i in range((end - start) // 2 + 1):
+        if s[start + i] != s[end - i]:
+            return False
+    return True
+
+
 def solution(s):
-    answer = 1
-
-    for i in range(len(s)):
-        for j in range(1, len(s) + 1):
-            if s[i:j] == s[i:j][::-1]:
-                answer = max(answer, len(s[i:j]))
-
-    return answer
+    for answer in range(len(s), 0, -1):
+        start = 0
+        end = answer - 1
+        while end < len(s):
+            if is_palindrome(s, start, end):
+                return answer
+            start += 1
+            end += 1
+    return 1
 
