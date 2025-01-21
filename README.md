@@ -38,7 +38,7 @@
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/qwes98"><b>qwes98</b></a></td>
-    <td align="center"><a href="https://github.com/iceprins"><b>jdoeun</b></a></td>
+    <td align="center"><a href="https://github.com/jdoeun"><b>jdoeun</b></a></td>
     <td align="center"><a href="https://github.com/iceprins"><b>iceprins</b></a></td>
     <td align="center"><a href="https://github.com/minchoi2"><b>minchoi2</b></a></td>
     <td align="center"><a href="https://github.com/yewoniii2"><b>yewoniii2</b></a></td>
