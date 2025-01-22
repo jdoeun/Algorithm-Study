@@ -1,0 +1,28 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 매일 00:00 UTC에 실행
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Fork
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # 전체 히스토리 가져오기
+
+    - name: Set Upstream
+      run: |
+        git remote add upstream https://github.com/iceprins/Algorithm-Study.git 
+        git fetch upstream
+        git switch main  # 기본 브랜치로 전환
+        git merge upstream/main --allow-unrelated-histories || true
+
+    - name: Push Changes to Fork
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git push origin main
