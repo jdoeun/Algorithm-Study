@@ -1,4 +1,4 @@
-name: Synchronize to forked repo
+name: Sync Fork
 
 on:
   push:
@@ -8,29 +8,27 @@ on:
 
 jobs:
   sync:
-    name: Sync forked repo
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
+      - name: Checkout main branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main
+          submodules: false
 
-      - name: Add remote-url
+      - name: Configure Git
         run: |
-          git remote add forked-repo https://github.com/jdoeun/Algorithm-Study.git
           git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@khu.ac.kr"
-      
-      - name: Push changes to forked-repo 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Fetch and Merge Changes
         run: |
-          git push -f forked-repo main
-      
-      - name: Clean up
+          git fetch upstream main
+          git merge upstream/main
+          git push origin main
+
+      - name: Verify Changes
         run: |
-          git remote remove forked-repo
+          git log --oneline origin/main..HEAD
 
