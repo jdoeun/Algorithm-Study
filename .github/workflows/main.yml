@@ -1,4 +1,4 @@
-name: Merge upstream branches
+name: Sync Fork
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # 수동 실행 가능
 
 jobs:
-  merge:
+  sync:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Fork
@@ -17,32 +17,32 @@ jobs:
         clean: true
         persist-credentials: false
 
+    - name: Remove Submodule Configurations
+      run: |
+        rm -rf .git/modules/*  # 서브모듈 캐시 강제 삭제
+        git submodule deinit --all --force || true  # 모든 서브모듈 비활성화
+        git config --local --remove-section submodule || true  # 서브모듈 설정 제거
+        find . -name ".gitmodules" -delete  # .gitmodules 파일 삭제
+
+    - name: Configure Safe Directory
+      run: |
+        git config --global --add safe.directory /home/runner/work/Algorithm-Study/Algorithm-Study
+
     - name: Configure Git User
       run: |
         git config --global user.name "${{ github.actor }}"
-        git config --global user.email "${{ github.actor }}@khu.ac.kr"
+        git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
-    - name: Add Upstream and Fetch
+    - name: Set Upstream
       run: |
-        git remote add upstream https://github.com/iceprins/Algorithm-Study.git
+        git remote add upstream https://github.com/example/test.git
         git fetch upstream
-
-    - name: Merge All Branches Dynamically
-      run: |
-        # 원본 저장소에서 브랜치 목록 가져오기
-        BRANCHES=$(git branch -r | grep 'upstream/' | sed 's|upstream/||')
-
-        # 각 브랜치 병합 처리
-        for BRANCH in $BRANCHES; do
-          if git show-ref --quiet refs/remotes/upstream/$BRANCH; then
-            git checkout -b $BRANCH origin/$BRANCH || git checkout $BRANCH
-            git merge --no-edit upstream/$BRANCH || true
-            git push origin $BRANCH || true
-          fi
-        done
-
-    - name: Merge Main Branch
-      run: |
-        git checkout main
+        git checkout main || git checkout -b main
         git merge --no-edit upstream/main || true
+
+    - name: Push Changes to Fork
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
         git push origin main || true
+
