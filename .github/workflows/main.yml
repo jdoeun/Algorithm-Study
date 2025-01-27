@@ -20,7 +20,8 @@ jobs:
       - name: Configure Git
         run: |
           git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git config user.email "${{ github.actor }}@khu.ac.kr"
+          git remote add upstream https://github.com/iceprins/Algorithm-Study.git
 
       - name: Fetch and Merge Changes
         run: |
