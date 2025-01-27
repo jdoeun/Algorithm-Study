@@ -12,26 +12,21 @@ jobs:
     - name: Checkout Fork
       uses: actions/checkout@v3
       with:
-        fetch-depth: 0  # 전체 히스토리 가져오기
-        submodules: false  # 서브모듈 완전 비활성화
-        clean: true  # 이전 작업 내용 삭제
-        persist-credentials: false  # 인증 캐시 사용 안 함
+        fetch-depth: 0
+        submodules: false
+        clean: true
+        persist-credentials: false
 
     - name: Disable Submodule Warnings
       run: |
-        rm -rf .git/modules/Algorithm-Study  # 서브모듈 캐시 삭제
-        git config --local --remove-section submodule || true  # 서브모듈 설정 제거
+        rm -rf .git/modules/*  # 서브모듈 캐시 강제 삭제
         git submodule deinit --all --force || true  # 서브모듈 비활성화
-        git submodule foreach --recursive git rm --cached . || true  # 캐시된 서브모듈 제거
+        git config --local --remove-section submodule || true  # 서브모듈 설정 제거
 
     - name: Configure Git User
       run: |
-        git config --global user.name "jdoeun"
-        git config --global user.email "jde429@khu.ac.kr"
-
-    - name: Configure Git Safe Directory
-      run: |
-        git config --global --add safe.directory /home/runner/work/Algorithm-Study/Algorithm-Study
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
 
     - name: Set Upstream
       run: |
@@ -45,4 +40,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git push origin main || true
+
 
