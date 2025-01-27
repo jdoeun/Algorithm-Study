@@ -9,35 +9,40 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Fork
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # 전체 히스토리 가져오기
+    - name: Checkout Fork
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        submodules: false
+        clean: true
+        persist-credentials: false
 
-      - name: Configure Git User
-        run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@khu.ac.kr"
+    - name: Configure Git User
+      run: |
+        git config --global user.name "${{ github.actor }}"
+        git config --global user.email "${{ github.actor }}@khu.ac.kr"
 
-      - name: Add Upstream and Fetch
-        run: |
-          git remote add upstream https://github.com/iceprins/Algorithm-Study.git
-          git fetch upstream
+    - name: Add Upstream and Fetch
+      run: |
+        git remote add upstream https://github.com/iceprins/Algorithm-Study.git
+        git fetch upstream
 
-      - name: Merge Feature Branches
-        run: |
-          BRANCHES=("feature/x" "feature/y")  # 병합할 브랜치 리스트
-          for BRANCH in "${BRANCHES[@]}"; do
+    - name: Merge All Branches Dynamically
+      run: |
+        # 원본 저장소에서 브랜치 목록 가져오기
+        BRANCHES=$(git branch -r | grep 'upstream/' | sed 's|upstream/||')
+
+        # 각 브랜치 병합 처리
+        for BRANCH in $BRANCHES; do
+          if git show-ref --quiet refs/remotes/upstream/$BRANCH; then
             git checkout -b $BRANCH origin/$BRANCH || git checkout $BRANCH
             git merge --no-edit upstream/$BRANCH || true
             git push origin $BRANCH || true
-          done
+          fi
+        done
 
-      - name: Merge Main Branch
-        run: |
-          git checkout main
-          git merge --no-edit upstream/main || true
-          git push origin main || true
-
-
-
+    - name: Merge Main Branch
+      run: |
+        git checkout main
+        git merge --no-edit upstream/main || true
+        git push origin main || true
