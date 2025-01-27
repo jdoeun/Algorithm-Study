@@ -1,44 +1,43 @@
-name: Sync Fork
+name: Merge upstream branches
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 매일 00:00 UTC에 실행
+    - cron: '0 */6 * * *'  # 매 6시간마다 실행
   workflow_dispatch: # 수동 실행 가능
 
 jobs:
-  sync:
+  merge:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Fork
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        submodules: false
-        clean: true
-        persist-credentials: false
+      - name: Checkout Fork
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 전체 히스토리 가져오기
 
-    - name: Disable Submodule Warnings
-      run: |
-        rm -rf .git/modules/*  # 서브모듈 캐시 강제 삭제
-        git submodule deinit --all --force || true  # 서브모듈 비활성화
-        git config --local --remove-section submodule || true  # 서브모듈 설정 제거
+      - name: Configure Git User
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@khu.ac.kr"
 
-    - name: Configure Git User
-      run: |
-        git config --global user.name "jdoeun"
-        git config --global user.email "jde429@khu.ac.kr"
+      - name: Add Upstream and Fetch
+        run: |
+          git remote add upstream https://github.com/iceprins/Algorithm-Study.git
+          git fetch upstream
 
-    - name: Set Upstream
-      run: |
-        git remote add upstream https://github.com/iceprins/Algorithm-Study.git
-        git fetch upstream
-        git checkout main || git checkout -b main
-        git merge upstream/main --no-edit || true
+      - name: Merge Feature Branches
+        run: |
+          BRANCHES=("feature/x" "feature/y")  # 병합할 브랜치 리스트
+          for BRANCH in "${BRANCHES[@]}"; do
+            git checkout -b $BRANCH origin/$BRANCH || git checkout $BRANCH
+            git merge --no-edit upstream/$BRANCH || true
+            git push origin $BRANCH || true
+          done
 
-    - name: Push Changes to Fork
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git push origin main || true
+      - name: Merge Main Branch
+        run: |
+          git checkout main
+          git merge --no-edit upstream/main || true
+          git push origin main || true
+
 
 
