@@ -14,15 +14,20 @@ jobs:
       with:
         fetch-depth: 0  # 전체 히스토리 가져오기
 
+    - name: Configure Git User
+      run: |
+        git config --global user.name "jdoeun"
+        git config --global user.email "jde429@khu.ac.kr"
+
     - name: Set Upstream
       run: |
-        git remote add upstream https://github.com/iceprins/Algorithm-Study.git 
+        git remote add upstream https://github.com/iceprins/Algorithm-Study.git
         git fetch upstream
-        git switch main  # 기본 브랜치로 전환
-        git merge upstream/main --allow-unrelated-histories || true
+        git checkout main || git checkout -b main
+        git merge upstream/main --no-edit || true
 
     - name: Push Changes to Fork
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git push origin main
+        git push origin main || true
