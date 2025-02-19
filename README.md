@@ -34,14 +34,14 @@
     <td align="center"><a href="https://github.com/jdoeun"><img src="https://avatars.githubusercontent.com/jdoeun" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/iceprins"><img src="https://avatars.githubusercontent.com/iceprins" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/minchoi2"><img src="https://avatars.githubusercontent.com/minchoi2" width="130px;" alt=""></a></td>
-    <td align="center"><a href="https://github.com/yewoniii2"><img src="https://avatars.githubusercontent.com/yewoniii2" width="130px;" alt=""></a></td>
+<!--     <td align="center"><a href="https://github.com/yewoniii2"><img src="https://avatars.githubusercontent.com/yewoniii2" width="130px;" alt=""></a></td> -->
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/qwes98"><b>qwes98</b></a></td>
     <td align="center"><a href="https://github.com/jdoeun"><b>jdoeun</b></a></td>
     <td align="center"><a href="https://github.com/iceprins"><b>iceprins</b></a></td>
     <td align="center"><a href="https://github.com/minchoi2"><b>minchoi2</b></a></td>
-    <td align="center"><a href="https://github.com/yewoniii2"><b>yewoniii2</b></a></td>
+<!--     <td align="center"><a href="https://github.com/yewoniii2"><b>yewoniii2</b></a></td> -->
   </tr>
 </table>
 
