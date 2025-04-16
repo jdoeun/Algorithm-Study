@@ -15,5 +15,5 @@ def solution(n):
             answer[x][y] = num
             num += 1
 
-    print(answer)
+    return sum(answer, [])
 
